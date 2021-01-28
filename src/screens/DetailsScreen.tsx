@@ -3,8 +3,9 @@ import {Image, View, Text} from "react-native";
 import {NavigationParams} from "react-navigation";
 import Carousel from 'react-native-snap-carousel';
 import AppStyles from "../styles/AppStyles";
-import {Pokemon, PokemonStat} from "./MainScreen";
+import {Pokemon, PokemonStat} from "../types/Types";
 import {Card} from "../components/Card";
+import Utils from "../util/Utils";
 
 type props = {
     navigation: any
@@ -17,7 +18,7 @@ export default function DetailsScreen(props: props) {
     useEffect(() => {
 
         if (pokemon.name) {
-            props.navigation.setOptions({title: pokemon.name})
+            props.navigation.setOptions({title: Utils.capitalizeFirstLetter(pokemon.name)})
         }
     }, []);
 
@@ -87,10 +88,8 @@ export default function DetailsScreen(props: props) {
         })
     }
 
-    console.log(pokemon);
-
     return (
-        <View>
+        <>
             <View style={{ marginVertical: AppStyles.dimensions.marginGeneral }}>
                 <Carousel
                     layout={'stack'}
@@ -113,6 +112,6 @@ export default function DetailsScreen(props: props) {
                     {renderStats()}
                 </View>
             </View>
-        </View>
+        </>
     );
 }

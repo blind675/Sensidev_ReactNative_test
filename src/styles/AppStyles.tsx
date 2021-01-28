@@ -22,12 +22,13 @@ class AppStyles {
         marginGeneral: 16,
         marginSmall: 8,
 
-        thumbnailImageSize: 65,
-
         textSizeBig: 24,
         textSizeMedium: 18,
         textSizeNormal: 14,
 
+        thumbnailImageSize: 65,
+
+        textInputSize: 40,
     }
 
     static image = StyleSheet.create({
@@ -61,12 +62,10 @@ class AppStyles {
     });
 
     static common = StyleSheet.create({
-        appContainer: {
+        container: {
+            flex: 1,
             alignItems: 'center',
             justifyContent: 'center',
-        },
-        container: {
-            alignSelf: 'stretch'
         },
         row: {
             flex: 1,
@@ -113,8 +112,18 @@ class AppStyles {
             shadowOpacity: 0.3,
             shadowRadius: 5,
             shadowColor: AppStyles.colors.black,
-
         },
+        textInputContainer: {
+            padding: AppStyles.dimensions.paddingGeneral,
+        },
+        textInput: {
+            height: AppStyles.dimensions.textInputSize,
+            paddingHorizontal: AppStyles.dimensions.paddingSmall,
+            borderRadius: 10,
+            borderWidth: 1,
+            backgroundColor: AppStyles.colors.white,
+            borderColor: AppStyles.colors.gray,
+        }
 
     });
 }
